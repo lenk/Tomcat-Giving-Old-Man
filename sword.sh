@@ -68,6 +68,21 @@ echo "[*] startup patched, restarting tomcat"
 sh /opt/tomcat/bin/shutdown.sh
 sh /opt/tomcat/bin/startup.sh
 
+path='/opt/tomcat/webapps/ROOT/index.jsp'
+result=""
+
+while read line; do
+  trim=$(echo $line | sed 's/ //g')
+  if [ "$trim" = "<imgsrc=\"tomcat.png\"alt=\"[tomcatlogo]\"/>" ]; then
+    result="${result}<img alt=\"[tomcat logo]\" src=\"https://i.imgur.com/hhEVOqV.png\" style=\"height: 80px; image-rendering: auto; image-rendering: crisp-edges; image-rendering: pixelated;\">"
+  else
+    result="${result}${line}"
+  fi
+done < $path
+> $filename
+echo $result >> $filename
+
+
 echo "[*] COMPLETED"
 
 # possibly soon to be automated
