@@ -2,7 +2,7 @@ echo "[*] installing JDK"
 sudo apt install default-jdk
 
 echo "[*] downloading tomcat"
-cd /tmp; wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.38/bin/apache-tomcat-9.0.38.tar.gz
+cd /tmp; wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.6/bin/apache-tomcat-10.0.6.tar.gz
 
 echo "[*] creating tomcat user"
 sudo groupadd tomcat
@@ -12,7 +12,7 @@ echo "[*] creating tomcat path"
 mkdir /opt/tomcat
 
 echo "[*] extracting tomcat"
-sudo tar xzvf apache-tomcat-9.0.38.tar.gz -C /opt/tomcat --strip-components=1
+sudo tar xzvf apache-tomcat-10.0.6.tar.gz -C /opt/tomcat --strip-components=1
 cd /opt/tomcat
 
 echo "[*] applying permissions"
